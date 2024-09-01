@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #container_main {
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 90%;
+            width: 400px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            opacity: 0.8;
+        }
+
+        #button_yes {
+            background-color: #4CAF50;
+            /* Green */
+            color: white;
+        }
+
+        #button_no {
+            background-color: #f44336;
+            /* Red */
+            color: white;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <main id="container_main">
+        <img src="https://www.gerarmemes.com.br/uploads/galeria/a1445469.jpg" id="img" alt="">
+        <h2 id="question">Você tá brava comigo?</h2>
+        <div>
+            <button id="button_yes" class="button" type="button" onclick="handleYes()">Sim</button>
+            <button id="button_no" class="button" type="button" onclick="handleNo()">Não</button>
+        </div>
+    </main>
+
+    <script>
+        let questionAsked = false;
+        let yesButton = document.getElementById('button_yes');
+        let noButton = document.getElementById('button_no');
+        let questionElement = document.getElementById('question');
+
+        function handleYes() {
+            if (!questionAsked) {
+                questionAsked = true;
+                questionElement.textContent = 'Me perdoa meu amor?';
+            } else {
+                comemorar();
+            }
+        }
+
+        function handleNo() {
+            if (questionAsked) {
+                if (parseFloat(noButton.style.fontSize) <= 8) {
+                      noButton.style.display = "none"
+                }
+                yesButton.style.fontSize = (parseInt(window.getComputedStyle(yesButton).fontSize) + 2) + 'px';
+                noButton.style.fontSize = (parseInt(window.getComputedStyle(noButton).fontSize) - 2) + 'px';
+            } else {
+                comemorar();
+            }
+        }
+
+        function comemorar() {
+            const div = document.getElementById('container_main');
+            div.innerHTML = '<div><img src="https://media.licdn.com/dms/image/v2/C4D12AQGhezNkv4d8Yg/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1614132155211?e=1730332800&v=beta&t=pvwPX23fqRsZB3igzYtTgIqXN2a5ZqRZXoVTnrCmHPQ"><p>Ufa, ainda bem que você me perdoou! Já sofri as consequências, né? O que você fez comigo hoje foi tortura kkkkk</p> <p>Queria agradecer por cuidar de mim e por ser a minha pessoa. Te amo muito e sempre vou te amar, não importa o que aconteça!</p></div>';
+        }
+    </script>
+    <p></p>
+</body>
+
+</html>
